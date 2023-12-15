@@ -7,7 +7,7 @@ document.getElementById('submit-btn').addEventListener('click', function() {
         headers: {
 
             'Content-Type': 'application/json',
-            'Authorization': `Bearer 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`
+            'Authorization': `Bearer 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`
         },
         body: JSON.stringify({
             model: 'gpt-3.5-turbo',
