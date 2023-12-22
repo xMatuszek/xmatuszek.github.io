@@ -1,3 +1,11 @@
+require('dotenv').config();
+
+const openaiApiKey = process.env.OPENAI_API_KEY;
+
+// Teraz możesz używać `openaiApiKey` w kodzie
+console.log('Klucz API OpenAI:', openaiApiKey);
+
+
 document.getElementById('submit-btn').addEventListener('click', function() {
     const userInput = document.getElementById('user-input').value;
     const userInstruction = document.getElementById('user-instruction').value;
@@ -7,7 +15,7 @@ document.getElementById('submit-btn').addEventListener('click', function() {
         headers: {
 
             'Content-Type': 'application/json',
-            'Authorization': `Bearer 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`
+            'Authorization': `Bearer ${openaiApiKey}`
         },
         body: JSON.stringify({
             model: 'gpt-3.5-turbo',
