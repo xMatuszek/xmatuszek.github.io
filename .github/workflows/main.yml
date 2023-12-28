@@ -1,4 +1,4 @@
-name: Moje GitHub Action
+name: corrector
 
 on:
   push:
@@ -6,24 +6,15 @@ on:
       - main
 
 jobs:
-  build:
+  your-job-name:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout kodu
+    - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Instaluj zależności
-      run: npm install
-
-    - name: Uruchom testy
-      run: npm test
-
-    - name: Wdrażaj do środowiska produkcyjnego
-      run: |
-        if [ ${{ github.event_name == 'push' }} ]; then
-          echo "Wdrażam do środowiska produkcyjnego..."
-          # Dodaj tu komendy wdrażające
-        fi
+    - name: Run your script
       env:
         OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: |
+        node script.js
