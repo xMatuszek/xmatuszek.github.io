@@ -2,6 +2,10 @@
   "name": "openai-script",
   "version": "1.0.0",
   "scripts": {
-    "start": "node script.js"
+    "start": "node -r dotenv/config script.js"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0"
   }
+
 }
