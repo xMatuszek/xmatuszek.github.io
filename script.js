@@ -1,5 +1,6 @@
 import dotenv from 'dotenv';
-require('dotenv').config();
+
+dotenv.config();
 const openaiApiKey = process.env.OPENAI_API_KEY;
 
 if (!openaiApiKey) {
