@@ -1,4 +1,3 @@
-const openaiApiKey = process.env.OPENAI_API_KEY;
 
 if (!openaiApiKey) {
     console.error("Nie ustawiono klucza API OpenAI.");
