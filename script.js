@@ -1,9 +1,9 @@
-require('dotenv').config();
-
 const openaiApiKey = process.env.OPENAI_API_KEY;
 
-// Teraz możesz używać `openaiApiKey` w kodzie
-console.log('Klucz API OpenAI:', openaiApiKey);
+if (!openaiApiKey) {
+    console.error("Nie ustawiono klucza API OpenAI.");
+}
+else{
 
 
 document.getElementById('submit-btn').addEventListener('click', function() {
@@ -75,4 +75,4 @@ document.getElementById('submit-btn').addEventListener('click', function() {
         document.getElementById('corrected-text').innerHTML = diffText;
     })
     .catch(error => console.error('Error:', error));
-});
+}); }
