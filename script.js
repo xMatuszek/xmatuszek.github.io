@@ -1,3 +1,4 @@
+require('dotenv').config();
 
 if (!openaiApiKey) {
     console.error("Nie ustawiono klucza API OpenAI.");
