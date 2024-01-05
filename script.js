@@ -14,7 +14,7 @@ if (!openaiApiKey) {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${openaiApiKey}`
+                    'Authorization': `Bearer KEY`
                 },
                 body: JSON.stringify({
                     model: 'gpt-3.5-turbo',
