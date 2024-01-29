@@ -10,7 +10,6 @@ app.use(cors());
 
 app.post('/api/correct', async (req, res) => {
     const userInput = req.body.userInput;
-    const userInstruction = req.body.userInstruction;
 
     const response = await fetch('https://api.openai.com/v1/chat/completions', {
         method: 'POST',
@@ -23,7 +22,7 @@ app.post('/api/correct', async (req, res) => {
             messages: [
                 {
                     role: 'system',
-                    content: userInstruction
+                    content: 'Correct grammar.'
                 },
                 {
                     role: 'user',
