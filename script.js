@@ -1,26 +1,15 @@
 document.getElementById('submit-btn').addEventListener('click', function() {
     const userInput = document.getElementById('user-input').value;
-    const userInstruction = document.getElementById('user-instruction').value;
+    // const userInstruction = document.getElementById('user-instruction').value;
 
-    fetch('https://api.openai.com/v1/chat/completions', {
+    fetch('http://localhost:3000/api/correct', {
         method: 'POST',
         headers: {
-
             'Content-Type': 'application/json',
-            'Authorization': `Bearer KEY`
         },
         body: JSON.stringify({
-            model: 'gpt-3.5-turbo',
-            messages: [
-                {
-                    role: 'system',
-                    content: userInstruction
-                },
-                {
-                    role: 'user',
-                    content: userInput
-                }
-            ]
+            userInput: userInput,
+            userInstruction: 'Correct grammar.'
         })
     })
     .then(response => response.json())
@@ -34,12 +23,12 @@ document.getElementById('submit-btn').addEventListener('click', function() {
         // The user input should not be cleared after the submit button is clicked
 
         let i = 0, j = 0;
-        while (i < userInput.length || j < correctedText.length) {
+        while (i < userInput.length - 1 || j < correctedText.length - 1) {
             if (userInput[i] === correctedText[j]) {
                 diffText += userInput[i] + ' ';
                 i++;
                 j++;
-            } else if (i < userInput.length && j < correctedText.length) {
+            } else if (i < userInput.length - 1 && j < correctedText.length - 1) {
                 if (userInput[i] !== correctedText[j]) {
                     diffText += '<del>' + userInput[i] + '</del> ';
                     i++;
@@ -48,13 +37,20 @@ document.getElementById('submit-btn').addEventListener('click', function() {
                         j++;
                     }
                 }
-            } else if (i < userInput.length) {
+            } else if (i < userInput.length - 1) {
                 diffText += '<del>' + userInput[i] + '</del> ';
                 i++;
-            } else if (j < correctedText.length) {
+            } else if (j < correctedText.length - 1) {
                 diffText += '<ins>' + correctedText[j] + '</ins> ';
                 j++;
             }
+        }
+
+        if (userInput[i] === correctedText[j].slice(0, -1)) {
+            diffText += userInput[i] + '. ';
+        } else {
+            diffText += '<del>' + userInput[i] + '</del> ';
+            diffText += '<ins>' + correctedText[j] + '</ins> ';
         }
 
         document.getElementById('corrected-text').innerHTML = diffText;

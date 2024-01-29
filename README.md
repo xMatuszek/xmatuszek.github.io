@@ -1,37 +1,25 @@
-# CorrectorGenius - Aplikacja webowa do poprawiania tekstu
-
-##### Instrukcja dla aplikacji webowej - w wersji statycznej.
-
 ***
+### Instalacja
 
-Witaj w **CorrectorGenius**, aplikacji internetowej stworzonej do ulepszania tekstu poprzez korektę gramatyki, słownictwa, interpunkcji i wielu innych aspektów. Aplikacja wykorzystuje interfejs API OpenAI, co pozwala na szybkie i skuteczne korekty tekstu. Poniżej znajduje się szczegółowy opis kluczowych komponentów: 
+1. Sklonuj repozytorium:
 
-***
-#### Pliki:
+``` bash
 
-**index.html:**
-- Główny plik HTML zawierający strukturę strony internetowej.
-- Obejmuje obszary wprowadzania tekstu użytkownika oraz dodatkowego kontekstu - instrukcji.
-- Wyświetla poprawiony tekst oraz zawiera przycisk "sumbit" do "wysyłki" wprowadzonego tekstu.
+git clone https://github.com/bpajor/cgenius---copy-.git
 
+```
 
+2. Zainstaluj zależności:
 
-**style.css:**
-- Definiuje stylowanie strony internetowej.
-- Stylizuje różne elementy, takie jak nagłówki, obszary wprowadzania tekstu oraz przycisk do wysyłki.
-- Implementuje kolorowy system podświetlania dla usuniętego i dodanego tekstu.
+```bash
+npm install
+```
 
+3. Uruchom serwer:
 
-**script.js:**
-- Zarządza interakcjami użytkownika i komunikuje się z interfejsem API OpenAI.
-- Nasłuchuje zdarzenia kliknięcia na przycisku "sumbit".
-- Pobiera dane wprowadzone przez użytkownika i instrukcje, a następnie wysyła zapytanie do API OpenAI.
-- Przetwarza odpowiedź API w celu wygenerowania kolorowego podświetlenia różnic w tekście.
-- Aktualizuje stronę internetową z poprawionym tekstem.
-
-**.env-template:**
-- szablonu pliku .env który zawiera zmienne środowiskowe, ale bez konkretnych wartości
-- ułatwi innym osobom w uzupełnieniu rzeczywistych wartości w pliku .env, gdy będzie to potrzebne.
+``` bash
+npm start
+```
 
 ***
 #### Konfiguracja klucza API OpenAI:
