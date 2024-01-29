@@ -1,6 +1,6 @@
 document.getElementById('submit-btn').addEventListener('click', function() {
     const userInput = document.getElementById('user-input').value;
-    const userInstruction = document.getElementById('user-instruction').value;
+    // const userInstruction = document.getElementById('user-instruction').value;
 
     fetch('http://localhost:3000/api/correct', {
         method: 'POST',
@@ -9,7 +9,7 @@ document.getElementById('submit-btn').addEventListener('click', function() {
         },
         body: JSON.stringify({
             userInput: userInput,
-            userInstruction: userInstruction
+            userInstruction: 'Correct grammar.'
         })
     })
     .then(response => response.json())
